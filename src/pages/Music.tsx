@@ -50,6 +50,11 @@ const Music = () => {
                         )}
                       />
                     </AspectRatio>
+                    {release.parent && (
+                      <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground/70 mb-1">
+                        {release.parent}
+                      </p>
+                    )}
                     <p
                       className={cn(
                         "text-[10px] uppercase tracking-[0.15em] mb-1",

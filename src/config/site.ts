@@ -4,8 +4,17 @@
 import runwayKeyArt from "@/assets/runway-key-art.png";
 import fendiBanner from "@/assets/fendi-banner.jpg";
 import fendiPress from "@/assets/fendi-press.jpg";
-import runwayAlbumCover from "@/assets/runway-album-cover.png";
-import heartChakraArt from "@/assets/heart-chakra.png";
+
+// Real, official album/single artwork — pulled from the iTunes Lookup API
+// (artist id 898143348), same strategy as the Artist Growth Hub resolve-artwork tool.
+import runwayMusicCover from "@/assets/covers/runway-music.jpg";
+import heartChakraCover from "@/assets/covers/heart-chakra.jpg";
+import exhaustingCover from "@/assets/covers/exhausting.jpg";
+import handMeDownCover from "@/assets/covers/hand-me-down.jpg";
+import rawDenimCover from "@/assets/covers/raw-denim.jpg";
+import cashmereCover from "@/assets/covers/cashmere.jpg";
+import suedeVsLeatherCover from "@/assets/covers/suede-vs-leather.jpg";
+import balenciagaSingleCover from "@/assets/covers/balenciaga-single.jpg";
 
 export const siteMeta = {
   name: "Fendi Frost",
@@ -64,6 +73,8 @@ export const navItems: NavItem[] = [
 
 // ---------------------------------------------------------------------------
 // Catalog
+// Verified against the iTunes Lookup API (artist id 898143348) — authoritative
+// for years, release types and artwork.
 // ---------------------------------------------------------------------------
 export type ReleaseCategory = "CURRENT ERA" | "ESSENTIAL" | "ARCHIVE";
 export type ReleaseType = "album" | "single" | "project";
@@ -78,6 +89,8 @@ export interface Release {
   description: string;
   listenUrl?: string;
   accent?: "gold" | "chakra";
+  /** Optional small eyebrow rendered on cards, e.g. "From Runway Music" for tracks that aren't standalone releases. */
+  parent?: string;
 }
 
 export const releases: Release[] = [
@@ -85,11 +98,11 @@ export const releases: Release[] = [
     id: "runway-music",
     title: "Runway Music",
     type: "album",
-    year: 2025,
+    year: 2026,
     category: "CURRENT ERA",
-    art: runwayAlbumCover,
+    art: runwayMusicCover,
     description:
-      "The current world connecting music, fashion, artwork, sound design and Chicago. This is the sound of style.",
+      "The current world connecting music, fashion, artwork, sound design and Chicago. This is the sound of style. 15 tracks, released 2026-05-20 under Work Hard Entertainment / Modest Mob.",
     listenUrl: links.runwaySmartLink,
     accent: "gold",
   },
@@ -97,22 +110,24 @@ export const releases: Release[] = [
     id: "designed-for-me",
     title: "Designed For Me (Control)",
     type: "single",
-    year: 2025,
+    year: 2026,
     category: "CURRENT ERA",
+    art: runwayMusicCover,
+    parent: "From Runway Music",
     description:
-      "A deep-house-leaning record built for the late-night hours — luxury tempo, control as a love language.",
+      "A deep-house-leaning record built for the late-night hours — luxury tempo, control as a love language. Track 6 on Runway Music.",
     listenUrl: links.designedForMeSmartLink,
     accent: "gold",
   },
   {
     id: "heart-chakra",
     title: "Heart Chakra",
-    type: "single",
-    year: 2024,
+    type: "album",
+    year: 2026,
     category: "ESSENTIAL",
-    art: heartChakraArt,
+    art: heartChakraCover,
     description:
-      "An open-hearted record built around a neon-red pulse — vulnerability rendered as dance floor energy.",
+      "An open-hearted record built around a neon-red pulse — vulnerability rendered as dance floor energy. 10 tracks, released 2026-02-14 under Work Hard Entertainment / Modest Mob.",
     listenUrl: links.heartChakraSmartLink,
     accent: "chakra",
   },
@@ -122,8 +137,9 @@ export const releases: Release[] = [
     type: "single",
     year: 2020,
     category: "ESSENTIAL",
+    art: exhaustingCover,
     description: "The record that traveled the furthest — a common entry point into the catalog.",
-    listenUrl: links.spotify,
+    listenUrl: "https://music.apple.com/us/album/exhausting-feat-fbg-duck-single/1586489116",
   },
   {
     id: "pappy-tribute",
@@ -136,35 +152,65 @@ export const releases: Release[] = [
   {
     id: "hand-me-down",
     title: "Hand Me Down",
-    type: "single",
-    year: 2021,
+    type: "album",
+    year: 2020,
     category: "ESSENTIAL",
-    description: "Inheritance as a theme — what gets passed down, what gets remixed.",
+    art: handMeDownCover,
+    description: "Inheritance as a theme — what gets passed down, what gets remixed. 10-track album.",
+    listenUrl: "https://music.apple.com/us/album/hand-me-down/1687826314",
   },
   {
     id: "raw-denim",
     title: "Raw Denim",
-    type: "project",
-    year: 2019,
+    type: "album",
+    year: 2018,
     category: "ARCHIVE",
+    art: rawDenimCover,
     description: "Early catalog project — raw, unfinished textures before the wash.",
+    listenUrl: "https://music.apple.com/us/album/raw-denim/1687825859",
   },
   {
     id: "cashmere",
     title: "Cashmere",
-    type: "project",
+    type: "album",
     year: 2018,
     category: "ARCHIVE",
+    art: cashmereCover,
     description: "A softer, interior-facing project from the early catalog.",
+    listenUrl: "https://music.apple.com/us/album/cashmere/1527529906",
   },
   {
     id: "suede-vs-leather",
     title: "Suede vs Leather",
-    type: "project",
-    year: 2017,
+    type: "album",
+    year: 2020,
     category: "ARCHIVE",
-    description: "Two textures, one artist — the project that set the fashion-as-music language in motion.",
+    art: suedeVsLeatherCover,
+    description:
+      "Two textures, one collaboration — Fendi Frost with B-Class, the album that set the fashion-as-music language in motion.",
+    listenUrl: "https://music.apple.com/us/album/suede-vs-leather/1518394298",
   },
+];
+
+// ---------------------------------------------------------------------------
+// Runway Music — full official tracklist (15 tracks, in order)
+// ---------------------------------------------------------------------------
+export const runwayTracklist: string[] = [
+  "McQueen",
+  "D&G SPELLED BACKWARDS",
+  "Balenciaga (Let Me Freeze)",
+  "Fall In Love (Chloe Tote)",
+  "COMME des GARÇONS",
+  "Designed For Me (Control)",
+  "YSL (Ice On)",
+  "MODEST Members Only",
+  "Runway Music",
+  "Electrilla",
+  "Dan Ryan Woods",
+  "White Horse (POLO SPORT)",
+  "Materialistic",
+  "Neva Too Much Prada",
+  "Fear Of God (Prada Lorin)",
 ];
 
 // ---------------------------------------------------------------------------
@@ -186,7 +232,7 @@ export const songPages: SongPage[] = [
   {
     slug: "designed-for-me",
     title: "Designed For Me (Control)",
-    era: "RUNWAY MUSIC",
+    era: "RUNWAY MUSIC — TRACK 6",
     status: "live",
     story:
       "This one came together in the Workhouse after midnight, when the city outside goes quiet enough to hear the low end properly. \"Designed For Me\" is about ownership — of a room, of a sound, of a night that bends to what you built instead of the other way around. It's Chicago house DNA run through a rapper's phrasing, made for the hour when the lights go low and the tempo does the talking.",
@@ -194,31 +240,33 @@ export const songPages: SongPage[] = [
       "Built around a warm, filtered house pulse cut with live-feeling drum programming out of the Workhouse. The vocal sits close and controlled — mixed to feel like it's speaking directly to one person in the room, not a crowd.",
     fashionRef: "Tailored, not loud — think a longline coat over bare skin. Control is the whole outfit.",
     listenUrl: links.designedForMeSmartLink,
-    art: runwayAlbumCover,
+    art: runwayMusicCover,
   },
   {
     slug: "mcqueen",
     title: "McQueen",
-    era: "RUNWAY MUSIC",
-    status: "upcoming",
+    era: "RUNWAY MUSIC — TRACK 1",
+    status: "live",
     story:
-      "Named for the house that treated the runway like a theater — this cut lives in that same tension between beauty and edge. Still taking shape inside the Runway Music world, built for a moment when the story needs a harder silhouette.",
+      "Named for the house that treated the runway like a theater — this cut lives in that same tension between beauty and edge. It opens Runway Music, out now, setting the tone for the whole world before anything else gets said.",
     productionNote:
-      "Early Workhouse sessions — sound design built from distressed textures and a sharp, cinematic low end, referencing the drama of a closing show more than a typical drop.",
+      "Cut at the Workhouse — sound design built from distressed textures and a sharp, cinematic low end, referencing the drama of a closing show more than a typical drop.",
     fashionRef: "Structured shoulders, a hard hem, something a little dangerous under the polish.",
-    art: runwayKeyArt,
+    listenUrl: "https://music.apple.com/us/album/mcqueen/6785156637?i=6785156638",
+    art: runwayMusicCover,
   },
   {
     slug: "balenciaga",
-    title: "Balenciaga",
-    era: "RUNWAY MUSIC",
-    status: "upcoming",
+    title: "Balenciaga (Let Me Freeze)",
+    era: "RUNWAY MUSIC — TRACK 3",
+    status: "live",
     story:
-      "Named for the house that made distortion feel like couture — oversized, deconstructed, unmistakably itself. This is that idea in record form, still being cut and pressed inside the Runway Music world.",
+      "Named for the house that made distortion feel like couture — oversized, deconstructed, unmistakably itself. \"Balenciaga (Let Me Freeze)\" first surfaced as a standalone single in 2023, then found its true home as track three on Runway Music.",
     productionNote:
-      "In development at the Workhouse — early passes lean into heavier low end and warped, oversized textures, mirroring the fashion reference in the sound design itself.",
+      "Built at the Workhouse — heavier low end and warped, oversized textures, mirroring the fashion reference in the sound design itself.",
     fashionRef: "Oversized, deconstructed, worn with total confidence — the beat is the silhouette.",
-    art: runwayKeyArt,
+    listenUrl: "https://music.apple.com/us/album/balenciaga-let-me-freeze/6785156637?i=6785156640",
+    art: balenciagaSingleCover,
   },
 ];
 
@@ -248,7 +296,7 @@ export const visuals: Visual[] = [
   {
     id: "on-tv",
     title: "On TV",
-    credit: "Fendi Frost \u00D7 Phor",
+    credit: "Fendi Frost × Phor",
     poster: "https://img.youtube.com/vi/Rt4EcZ_R4X8/hqdefault.jpg",
     youtubeId: "Rt4EcZ_R4X8",
     videoUrl: "https://www.youtube.com/watch?v=Rt4EcZ_R4X8",
@@ -256,7 +304,7 @@ export const visuals: Visual[] = [
   {
     id: "everything-black",
     title: "Everything Black",
-    credit: "B-Class \u00D7 Fendi Frost \u00B7 Prod. Ingenious Music",
+    credit: "B-Class × Fendi Frost · Prod. Ingenious Music",
     poster: "https://img.youtube.com/vi/HsbzHB0a49A/hqdefault.jpg",
     youtubeId: "HsbzHB0a49A",
     videoUrl: "https://www.youtube.com/watch?v=HsbzHB0a49A",
@@ -278,8 +326,12 @@ export const images = {
   runwayKeyArt,
   fendiBanner,
   fendiPress,
-  runwayAlbumCover,
-  heartChakraArt,
+  // Real official Runway Music album cover (iTunes API) — kept under the
+  // original export key so existing components don't need to change.
+  runwayAlbumCover: runwayMusicCover,
+  // Real official Heart Chakra album cover (iTunes API) — kept under the
+  // original export key so existing components don't need to change.
+  heartChakraArt: heartChakraCover,
 };
 
 // ---------------------------------------------------------------------------

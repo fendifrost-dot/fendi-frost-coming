@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import Eyebrow from "@/components/Eyebrow";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { images, links, releases, songPages } from "@/config/site";
+import { images, links, releases, runwayTracklist, songPages } from "@/config/site";
 import { outbound } from "@/lib/analytics";
 
 const tracklist = releases.filter((r) => r.category === "CURRENT ERA" || r.id === "heart-chakra");
@@ -57,6 +57,9 @@ const Runway = () => {
                 <div className="flex items-center gap-6">
                   <span className="text-muted-foreground text-sm w-6">{String(i + 1).padStart(2, "0")}</span>
                   <div>
+                    {track.parent && (
+                      <p className="text-[10px] uppercase tracking-[0.15em] text-gold/80 mb-1">{track.parent}</p>
+                    )}
                     <h3 className="font-serif text-xl sm:text-2xl">{track.title}</h3>
                     <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-1">
                       {track.type} &middot; {track.year}
@@ -93,6 +96,34 @@ const Runway = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border/30 py-20 sm:py-28 bg-secondary/10">
+        <div className="container max-w-2xl mx-auto">
+          <Eyebrow className="justify-center flex">Full Tracklist</Eyebrow>
+          <h2 className="font-serif text-4xl sm:text-5xl mb-12 text-center">Runway Music &mdash; 15 Tracks</h2>
+          <ol className="divide-y divide-border/30 border-y border-border/30">
+            {runwayTracklist.map((track, i) => {
+              const songPage = songPages.find(
+                (s) => s.title.toLowerCase() === track.toLowerCase() || s.title.toLowerCase().startsWith(track.toLowerCase().split(" (")[0]),
+              );
+              return (
+                <li key={track} className="flex items-center justify-between py-4 gap-4">
+                  <div className="flex items-center gap-6">
+                    <span className="text-muted-foreground text-sm w-6">{String(i + 1).padStart(2, "0")}</span>
+                    {songPage ? (
+                      <Link to={`/runway/${songPage.slug}`} className="font-serif text-lg hover:text-gold transition-colors">
+                        {track}
+                      </Link>
+                    ) : (
+                      <span className="font-serif text-lg">{track}</span>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
         </div>
       </section>
 

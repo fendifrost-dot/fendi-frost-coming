@@ -29,11 +29,11 @@ const Archive = () => {
           {archiveItems.map((item) => (
             <div key={item.id} className="bg-background p-8 flex flex-col">
               <img
-                src={images.runwayKeyArt}
-                alt=""
-                aria-hidden
+                src={item.art ?? images.runwayKeyArt}
+                alt={item.art ? item.title : ""}
+                aria-hidden={!item.art}
                 loading="lazy"
-                className="w-full h-40 object-cover mb-6 opacity-60"
+                className={item.art ? "w-full h-40 object-cover mb-6" : "w-full h-40 object-cover mb-6 opacity-60"}
               />
               <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-2">
                 {item.type} &middot; {item.year}
