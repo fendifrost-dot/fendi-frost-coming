@@ -1,0 +1,10 @@
+84c236333ae5d4d16f965beb1213e769  /tmp/claude-0/-home-user-fendi-frost-coming/3187cddb-5503-5ff2-b74d-11dcb882111b/scratchpad/i1a/raw/_about.html
+84c236333ae5d4d16f965beb1213e769  /tmp/claude-0/-home-user-fendi-frost-coming/3187cddb-5503-5ff2-b74d-11dcb882111b/scratchpad/i1a/raw/_archive.html
+84c236333ae5d4d16f965beb1213e769  /tmp/claude-0/-home-user-fendi-frost-coming/3187cddb-5503-5ff2-b74d-11dcb882111b/scratchpad/i1a/raw/_fashion.html
+84c236333ae5d4d16f965beb1213e769  /tmp/claude-0/-home-user-fendi-frost-coming/3187cddb-5503-5ff2-b74d-11dcb882111b/scratchpad/i1a/raw/_music.html
+84c236333ae5d4d16f965beb1213e769  /tmp/claude-0/-home-user-fendi-frost-coming/3187cddb-5503-5ff2-b74d-11dcb882111b/scratchpad/i1a/raw/_root.html
+84c236333ae5d4d16f965beb1213e769  /tmp/claude-0/-home-user-fendi-frost-coming/3187cddb-5503-5ff2-b74d-11dcb882111b/scratchpad/i1a/raw/_runway.html
+84c236333ae5d4d16f965beb1213e769  /tmp/claude-0/-home-user-fendi-frost-coming/3187cddb-5503-5ff2-b74d-11dcb882111b/scratchpad/i1a/raw/_runway_balenciaga.html
+84c236333ae5d4d16f965beb1213e769  /tmp/claude-0/-home-user-fendi-frost-coming/3187cddb-5503-5ff2-b74d-11dcb882111b/scratchpad/i1a/raw/_runway_designed-for-me.html
+84c236333ae5d4d16f965beb1213e769  /tmp/claude-0/-home-user-fendi-frost-coming/3187cddb-5503-5ff2-b74d-11dcb882111b/scratchpad/i1a/raw/_runway_mcqueen.html
+84c236333ae5d4d16f965beb1213e769  /tmp/claude-0/-home-user-fendi-frost-coming/3187cddb-5503-5ff2-b74d-11dcb882111b/scratchpad/i1a/raw/_visuals.html
